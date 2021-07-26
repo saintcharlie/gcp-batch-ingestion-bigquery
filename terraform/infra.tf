@@ -10,7 +10,7 @@ provider "google" {
   region = "australia-southeast1-a"
 }
 
-resource "google_storage_bucket" "funky-bucket" {
+resource "google_storage_bucket" "sutikno-gcp-code" {
   name = "batch-pipeline"
   storage_class = "REGIONAL"
   location  = "australia-southeast1"
