@@ -11,7 +11,7 @@ provider "google" {
 }
 
 resource "google_storage_bucket" "sutikno-gcp-code-batch" {
-  name = "batch-pipeline"
+  name = "sutikno-gcp-code-batch"
   storage_class = "REGIONAL"
   location  = "australia-southeast1"
 }
