@@ -22,15 +22,15 @@ dependencies {
 }
 
 run {
-    args = ["--project=grey-sort-challenge",
+    args = ["--project=sutikno",
             "--runner=DataflowRunner",
             "--maxNumWorkers=5",
             "--numWorkers=1",
             "--zone=australia-southeast1-a",
-            "--stagingLocation=gs://batch-pipeline/jars",
-            "--tempLocation=gs://batch-pipeline/tmp",
-            "--templateLocation=gs://batch-pipeline/template/pipeline"
+            "--stagingLocation=gs://temp-gcp-code-batch/jars",
+            "--tempLocation=gs://temp-gcp-code-batch/tmp",
+            "--templateLocation=gs://temp-gcp-code-batch/template/pipeline"
     ]
 }
 
-mainClassName="org.polleyg.TemplatePipeline"
+mainClassName="org.csutikno.TemplatePipeline"
