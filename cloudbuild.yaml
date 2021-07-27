@@ -40,5 +40,5 @@ steps:
 # 6. Copy tarball/archive to GCS for more shenanigans later
 artifacts:
   objects:
-    location: 'gs://batch-pipeline/artifacts'
+    location: 'gs://temp-gcp-code-batch/artifacts'
     paths: ['build/distributions/*.*']
