@@ -3,10 +3,10 @@ apply plugin: "java"
 apply plugin: "idea"
 
 //task wrapper(type: Wrapper) {
-wrapper {
-    gradleVersion = "4.10"
-    distributionUrl = distributionUrl.replace("bin", "all")
-}
+//wrapper {
+//    gradleVersion = "4.10"
+//    distributionUrl = distributionUrl.replace("bin", "all")
+//}
 
 repositories {
     mavenLocal()
