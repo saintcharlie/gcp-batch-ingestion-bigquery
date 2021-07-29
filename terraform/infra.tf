@@ -11,9 +11,9 @@ provider "google" {
   region = "australia-southeast1-a"
 }
 
-resource "google_storage_bucket" "batch-pipeline" {
+resource "google_storage_bucket" "batch-pipeline-code" {
   #name = "temp-gcp-code-batch"
-  name = "batch-pipeline"
+  name = "batch-pipeline-code"
   storage_class = "REGIONAL"
   location  = "australia-southeast1"
 }

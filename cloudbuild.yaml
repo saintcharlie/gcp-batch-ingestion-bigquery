@@ -29,16 +29,16 @@ steps:
 # 4b. Deploy the Cloud Function that listens to the bucket
 - name: gcr.io/cloud-builders/gcloud
   id: function-deploy
-  args: ['functions', 'deploy', 'goWithTheDataFlow', '--runtime=nodejs10','--region=australia-southeast1','--service-account=datadeployer@sutikno.iam.gserviceaccount.com','--stage-bucket=gs://batch-pipeline', '--trigger-bucket=gs://batch-pipeline']
+  args: ['functions', 'deploy', 'goWithTheDataFlow', '--runtime=nodejs10','--region=australia-southeast1','--service-account=datadeployer@sutikno.iam.gserviceaccount.com','--stage-bucket=gs://batch-pipeline-code', '--trigger-bucket=gs://batch-pipeline-code']
   dir: 'cloud-function'
   waitFor: ['npm-install-test']
 
 # 5. Trigger the pipeline for demo purposes
 - name: gcr.io/cloud-builders/gsutil
-  args: ['cp', 'gs://test-file-for-dataflow/*', 'gs://batch-pipeline/upload/file.csv']
+  args: ['cp', 'gs://test-file-for-dataflow/*', 'gs://batch-pipeline-code/upload/file.csv']
 
 # 6. Copy tarball/archive to GCS for more shenanigans later
 artifacts:
   objects:
-    location: 'gs://batch-pipeline/artifacts'
+    location: 'gs://batch-pipeline-code/artifacts'
     paths: ['build/distributions/*.*']
