@@ -1,7 +1,7 @@
 {
   "main": "index.js",
   "description": "A cloud function",
-  "repository": "https://github.com/polleyg/gcp-batch-ingestion-bigquery.git",
+  "repository": "https://github.com/saintcharlie/gcp-batch-ingestion-bigquery.git",
   "license": "MIT",
   "devDependencies": {},
   "dependencies": {
