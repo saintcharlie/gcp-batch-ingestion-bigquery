@@ -35,12 +35,20 @@ public class TemplatePipelineTest {
 
         List<String> input = new ArrayList<>();
 
-        input.add("2018,8,13,Wikinews,English,Spanish football: Sevilla signs Aleix Vidal from FC Barcelona,12331");
+        input.add("29/7/2021,Coles (Mitcham),grocery,credit card,4484xxx4242,13");
 
         List<TableRow> output = fnTester.processBundle(input);
 
         Assert.assertThat(output, is(not(empty())));
 
+
+        Assert.assertThat(output.get(0).get("date"), is(equalTo("29/7/2021")));
+        Assert.assertThat(output.get(0).get("transaction"), is(equalTo("Coles (Mitcham)")));
+        Assert.assertThat(output.get(0).get("category"), is(equalTo("grocery")));
+        Assert.assertThat(output.get(0).get("account"), is(equalTo("credit card")));
+        Assert.assertThat(output.get(0).get("accountnumber"), is(equalTo("4484xxx4242")));
+        Assert.assertThat(output.get(0).get("amount"), is(equalTo("13")));
+        /*
         Assert.assertThat(output.get(0).get("year"), is(equalTo("2018")));
         Assert.assertThat(output.get(0).get("month"), is(equalTo("8")));
         Assert.assertThat(output.get(0).get("day"), is(equalTo("13")));
@@ -48,6 +56,7 @@ public class TemplatePipelineTest {
         Assert.assertThat(output.get(0).get("language"), is(equalTo("English")));
         Assert.assertThat(output.get(0).get("title"), is(equalTo("Spanish football: Sevilla signs Aleix Vidal from FC Barcelona")));
         Assert.assertThat(output.get(0).get("views"), is(equalTo("12331")));
+        */
     }
 
     @Test
@@ -55,7 +64,8 @@ public class TemplatePipelineTest {
 
         List<String> input = new ArrayList<>();
 
-        input.add("year,month,day,wikimedia_project,language,title,views");
+        //input.add("year,month,day,wikimedia_project,language,title,views");
+        input.add("date,transaction,category,account,accountnumber,amount");
 
         List<TableRow> output = fnTester.processBundle(input);
 
