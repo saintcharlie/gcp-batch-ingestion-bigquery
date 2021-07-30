@@ -1,10 +1,10 @@
-//gcloud --project=grey-sort-challenge functions deploy goWithTheDataFlow --stage-bucket gs://batch-pipeline-code --trigger-bucket gs://batch-pipeline-code
+//gcloud --project=grey-sort-challenge functions deploy goWithTheDataFlow --stage-bucket gs://batch-pipeline --trigger-bucket gs://batch-pipeline
 const google = require('googleapis');
-exports.goWithTheDataFlow = function(event, callback) {
-  const file = event.data;
-  const context = event.context;
+exports.goWithTheDataFlow = function(data, context, callback) {
+  const file = data;
+  //const context = event.context;
 
-  console.log("Event is: ", event);
+  //console.log("Event is: ", event);
   console.log("File is: ", file);
   console.log("State is: ", context.eventType);
 
@@ -33,8 +33,8 @@ exports.goWithTheDataFlow = function(event, callback) {
             parameters: {
               inputFile: `gs://${file.bucket}/${file.name}`
             },
-            jobName: 'called-from-a-cloud-function-batch-pipeline-code-' + new Date().getTime(),
-            gcsPath: 'gs://batch-pipeline-code/template/pipeline'
+            jobName: 'called-from-a-cloud-function-batch-pipeline-' + new Date().getTime(),
+            gcsPath: 'gs://batch-pipeline/template/pipeline'
           }
         }, function(err, response) {
           if (err) {
