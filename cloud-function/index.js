@@ -2,13 +2,13 @@
 const google = require('googleapis');
 exports.goWithTheDataFlow = function(data, context, callback) {
   const file = data;
-  //const context = event.context;
+  const etype = context.eventType;
 
   //console.log("Event is: ", event);
   console.log("File is: ", file);
-  console.log("State is: ", context.eventType);
+  console.log("State is: ", etype);
 
-  if (context.eventType === 'google.storage.object.finalize' && file.name.indexOf('upload/') !== -1) {
+  if (etype === 'google.storage.object.finalize' && file.name.indexOf('upload/') !== -1) {
     google.auth.getApplicationDefault(function (err, authClient) {
       if (err) {
         throw err;
