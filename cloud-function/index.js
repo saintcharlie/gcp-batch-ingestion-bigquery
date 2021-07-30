@@ -19,7 +19,7 @@ exports.goWithTheDataFlow = function(data, context, callback) {
       // See https://cloud.google.com/compute/docs/authentication for more information on scopes
       if (authClient.createScopedRequired && authClient.createScopedRequired()) {
         // Scopes can be specified either as an array or as a single, space-delimited string.
-        console.log("inside scope);
+        console.log("inside scope");
         authClient = authClient.createScoped([
           'https://www.googleapis.com/auth/cloud-platform',
           'https://www.googleapis.com/auth/userinfo.email'
