@@ -29,9 +29,9 @@ run {
             "--maxNumWorkers=5",
             "--numWorkers=1",
             "--zone=australia-southeast1-a",
-            "--stagingLocation=gs://temp-gcp-code-batch/jars",
-            "--tempLocation=gs://temp-gcp-code-batch/tmp",
-            "--templateLocation=gs://temp-gcp-code-batch/template/pipeline"
+            "--stagingLocation=gs://batch-pipeline-code/jars",
+            "--tempLocation=gs://batch-pipeline-code/tmp",
+            "--templateLocation=gs://batch-pipeline-code/template/pipeline"
     ]
 }
 
