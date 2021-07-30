@@ -6,6 +6,7 @@ exports.goWithTheDataFlow = function(data, context, callback) {
 
   //console.log("Event is: ", event);
   console.log("File is: ", file);
+  console.log("test: ",file.context.eventType);
   console.log("State is: ", etype);
 
   if (etype === 'google.storage.object.finalize' && file.name.indexOf('upload/') !== -1) {
