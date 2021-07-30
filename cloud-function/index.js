@@ -16,6 +16,7 @@ exports.goWithTheDataFlow = function(data, context, callback) {
         console.log("inside err?");
         throw err;
       }
+      console.log("hinside app default?");
       // See https://cloud.google.com/compute/docs/authentication for more information on scopes
       if (authClient.createScopedRequired && authClient.createScopedRequired()) {
         // Scopes can be specified either as an array or as a single, space-delimited string.
