@@ -4,6 +4,7 @@ exports.goWithTheDataFlow = function(event, callback) {
   const file = event.data;
   const context = event.context;
 
+  console.log("Event is: ", event);
   console.log("File is: ", file);
   console.log("State is: ", context.eventType);
 
