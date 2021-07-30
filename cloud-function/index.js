@@ -2,11 +2,11 @@
 const google = require('googleapis');
 exports.goWithTheDataFlow = function(data, context, callback) {
   const file = data;
-  const etype = context.eventType;
+  const etype = data.context.eventType;
 
   //console.log("Event is: ", event);
   console.log("File is: ", file);
-  console.log("test: ",file.context.eventType);
+  //console.log("test: ",file.context.eventType);
   console.log("State is: ", etype);
 
   if (etype === 'google.storage.object.finalize' && file.name.indexOf('upload/') !== -1) {
