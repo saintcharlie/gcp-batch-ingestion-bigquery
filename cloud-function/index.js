@@ -6,7 +6,8 @@ exports.goWithTheDataFlow = function(data, context, callback) {
 
   //console.log("Event is: ", event);
   console.log("File is: ", file);
-  console.log("File name is: ", file.name);
+  console.log("File name is: ", data.data.name);
+  console.log("File 2 is: ", data.name);
   console.log("file.name.indexOf('upload/') ", file.name.indexOf('upload/'));
   //console.log("test: ",file.context.eventType);
   console.log("State is: ", etype);
