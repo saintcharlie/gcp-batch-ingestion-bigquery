@@ -4,15 +4,12 @@ exports.goWithTheDataFlow = function(data, context, callback) {
   const file = data;
   const etype = data.context.eventType;
 
-  //console.log("Event is: ", event);
+  
   console.log("File is: ", file);
-  console.log("File name is: ", data.data.name);
-  console.log("File 2 is: ", data.name);
-  console.log("file.name.indexOf('upload/') ", file.name.indexOf('upload/'));
-  //console.log("test: ",file.context.eventType);
+  //console.log("File name is: ", file.data.name);
   console.log("State is: ", etype);
 
-  if (etype === 'google.storage.object.finalize' && file.name.indexOf('upload/') !== -1) {
+  if (etype === 'google.storage.object.finalize' && file.data.name.indexOf('upload/') !== -1) {
     google.auth.getApplicationDefault(function (err, authClient) {
       if (err) {
         throw err;
@@ -35,7 +32,7 @@ exports.goWithTheDataFlow = function(data, context, callback) {
           projectId: projectId,
           resource: {
             parameters: {
-              inputFile: `gs://${file.bucket}/${file.name}`
+              inputFile: `gs://${file.data.bucket}/${file.data.name}`
             },
             jobName: 'called-from-a-cloud-function-batch-pipeline-' + new Date().getTime(),
             gcsPath: 'gs://batch-pipeline/template/pipeline'
