@@ -10,23 +10,28 @@ exports.goWithTheDataFlow = function(data, context, callback) {
   console.log("State is: ", etype);
 
   if (etype === 'google.storage.object.finalize' && file.data.name.indexOf('upload/') !== -1) {
+    console.log("inside if");
     google.auth.getApplicationDefault(function (err, authClient) {
       if (err) {
+        console.log("inside err?");
         throw err;
       }
       // See https://cloud.google.com/compute/docs/authentication for more information on scopes
       if (authClient.createScopedRequired && authClient.createScopedRequired()) {
         // Scopes can be specified either as an array or as a single, space-delimited string.
+        console.log("inside scope);
         authClient = authClient.createScoped([
           'https://www.googleapis.com/auth/cloud-platform',
           'https://www.googleapis.com/auth/userinfo.email'
         ]);
       }
+      console.log("here?");
       google.auth.getDefaultProjectId(function(err, projectId) {
         if (err || !projectId) {
           console.error(`Problems getting projectId (${projectId}). Err was: `, err);
           throw err;
         }
+        console.log("then here?");
         const dataflow = google.dataflow({ version: 'v1b3', auth: authClient });
         dataflow.projects.templates.create({
           projectId: projectId,
