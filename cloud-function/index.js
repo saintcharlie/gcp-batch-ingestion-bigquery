@@ -12,6 +12,7 @@ exports.goWithTheDataFlow = function(data, context, callback) {
   if (etype === 'google.storage.object.finalize' && file.data.name.indexOf('upload/') !== -1) {
     console.log("inside if");
     google.auth.getApplicationDefault(function (err, authClient) {
+      console.log("right here");
       if (err) {
         console.log("inside err?");
         throw err;
