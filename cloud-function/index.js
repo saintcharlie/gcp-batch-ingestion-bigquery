@@ -1,6 +1,6 @@
 //gcloud --project=grey-sort-challenge functions deploy goWithTheDataFlow --stage-bucket gs://batch-pipeline --trigger-bucket gs://batch-pipeline
-//const google = require('googleapis');
-var {google} = require('googleapis');
+const google = require('googleapis');
+//var {google} = require('googleapis');
 exports.goWithTheDataFlow = function(data, context, callback) {
   const file = data;
   const etype = data.context.eventType;
@@ -12,7 +12,7 @@ exports.goWithTheDataFlow = function(data, context, callback) {
 
   if (etype === 'google.storage.object.finalize' && file.data.name.indexOf('upload/') !== -1) {
     console.log("inside if");
-    google.auth.getApplicationDefault(function (err, authClient) {
+    google.auth.getApplicationDefault(function (err, authClient, projectId) {
     console.log("right here");
     if (err) {
       console.log("inside err?");
