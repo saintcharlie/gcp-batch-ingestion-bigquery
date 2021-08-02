@@ -1,5 +1,6 @@
 //gcloud --project=grey-sort-challenge functions deploy goWithTheDataFlow --stage-bucket gs://batch-pipeline --trigger-bucket gs://batch-pipeline
-const google = require('googleapis');
+//const google = require('googleapis');
+var {google} = require('googleapis');
 exports.goWithTheDataFlow = function(data, context, callback) {
   const file = data;
   const etype = data.context.eventType;
@@ -12,12 +13,12 @@ exports.goWithTheDataFlow = function(data, context, callback) {
   if (etype === 'google.storage.object.finalize' && file.data.name.indexOf('upload/') !== -1) {
     console.log("inside if");
     google.auth.getApplicationDefault(function (err, authClient) {
-      console.log("right here");
-      if (err) {
-        console.log("inside err?");
-        throw err;
-      }
-      console.log("hinside app default?");
+    console.log("right here");
+    if (err) {
+      console.log("inside err?");
+      throw err;
+    }
+    console.log("hinside app default?");
       // See https://cloud.google.com/compute/docs/authentication for more information on scopes
       if (authClient.createScopedRequired && authClient.createScopedRequired()) {
         // Scopes can be specified either as an array or as a single, space-delimited string.
