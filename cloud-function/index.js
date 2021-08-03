@@ -4,15 +4,15 @@ const google = require('googleapis');
 exports.goWithTheDataFlow = function(data, context, callback) {
   const file = data;  
   const ttype = context.eventType;
-  const etype = data.context.eventType;
+  //const etype = data.context.eventType;
 
   
   console.log("File is: ", file);
-  //console.log("File name is: ", file.data.name);
-  console.log("State is: ", etype);
+  //console.log("State is: ", etype);
   console.log("State is: ", ttype);
 
-  if (etype === 'google.storage.object.finalize' && file.data.name.indexOf('upload/') !== -1) {
+  //if (etype === 'google.storage.object.finalize' && file.data.name.indexOf('upload/') !== -1) {
+  if (ttype === 'google.storage.object.finalize' && data.name.indexOf('upload/') !== -1) {    
     console.log("inside if");
     google.auth.getApplicationDefault(function (err, authClient, projectId) {
     console.log("right here");
