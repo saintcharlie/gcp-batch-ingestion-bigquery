@@ -1,6 +1,6 @@
 //gcloud --project=grey-sort-challenge functions deploy goWithTheDataFlow --stage-bucket gs://batch-pipeline --trigger-bucket gs://batch-pipeline
-//const google = require('googleapis');
-var {google} = require('googleapis');
+const google = require('googleapis');
+//var {google} = require('googleapis');
 exports.goWithTheDataFlow = function(data, context, callback) {
   const file = data;  
   const etype = data.context.eventType;
