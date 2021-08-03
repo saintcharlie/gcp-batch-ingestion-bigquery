@@ -12,7 +12,7 @@ exports.goWithTheDataFlow = function(data, context, callback) {
   console.log("State is: ", ttype);
 
   //if (etype === 'google.storage.object.finalize' && file.data.name.indexOf('upload/') !== -1) {
-  if (data.context.eventType === 'google.storage.object.finalize' && file.data.name.indexOf('upload/') !== -1) {    
+  if (ttype === 'google.storage.object.finalize' && data.name.indexOf('upload/') !== -1) {    
     console.log("inside if");
     google.auth.getApplicationDefault(function (err, authClient, projectId) {
     console.log("right here");
