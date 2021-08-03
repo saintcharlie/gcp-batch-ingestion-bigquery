@@ -13,25 +13,21 @@ exports.goWithTheDataFlow = function(data, context, callback) {
   //console.log("data.name is: ", data.name);
 
   //if (etype === 'google.storage.object.finalize' && file.data.name.indexOf('upload/') !== -1) {
-  if (ttype === 'google.storage.object.finalize' && data.name.indexOf('upload/') !== -1) {    
-    console.log("inside if");
+  if (ttype === 'google.storage.object.finalize' && file.name.indexOf('upload/') !== -1) {    
     google.auth.getApplicationDefault(function (err, authClient, projectId) {
-    console.log("right here");
     if (err) {
-      console.log("inside err?");
       throw err; 
     }
-    console.log("hinside app default?");
+
       // See https://cloud.google.com/compute/docs/authentication for more information on scopes
       if (authClient.createScopedRequired && authClient.createScopedRequired()) {
         // Scopes can be specified either as an array or as a single, space-delimited string.
-        console.log("inside scope");
         authClient = authClient.createScoped([
           'https://www.googleapis.com/auth/cloud-platform',
           'https://www.googleapis.com/auth/userinfo.email'
         ]);
       }
-      console.log("here?");
+      
       google.auth.getDefaultProjectId(function(err, projectId) {
         if (err || !projectId) {
           console.error(`Problems getting projectId (${projectId}). Err was: `, err);
@@ -43,7 +39,7 @@ exports.goWithTheDataFlow = function(data, context, callback) {
           projectId: projectId,
           resource: {
             parameters: {
-              inputFile: `gs://${file.data.bucket}/${file.data.name}`
+              inputFile: `gs://${file.bucket}/${file.name}`
             },
             jobName: 'called-from-a-cloud-function-batch-pipeline-' + new Date().getTime(),
             gcsPath: 'gs://batch-pipeline/template/pipeline'
