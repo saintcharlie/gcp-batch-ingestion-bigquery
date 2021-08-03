@@ -18,7 +18,7 @@ exports.goWithTheDataFlow = function(data, context, callback) {
     console.log("right here");
     if (err) {
       console.log("inside err?");
-      throw err;
+      throw err; 
     }
     console.log("hinside app default?");
       // See https://cloud.google.com/compute/docs/authentication for more information on scopes
