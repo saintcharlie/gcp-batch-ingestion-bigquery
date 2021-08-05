@@ -24,7 +24,7 @@ exports.goWithTheDataFlow = function(data, context, callback) {
         // Scopes can be specified either as an array or as a single, space-delimited string.
         authClient = authClient.createScoped([
           'https://www.googleapis.com/auth/cloud-platform',
-          'https://www.googleapis.com/auth/userinfo.email'
+          'https://www.googleapis.com/auth/userinfo.email' 
         ]);
       }
       
