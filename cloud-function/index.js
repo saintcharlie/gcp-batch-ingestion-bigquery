@@ -1,4 +1,5 @@
 //gcloud --project=grey-sort-challenge functions deploy goWithTheDataFlow --stage-bucket gs://batch-pipeline --trigger-bucket gs://batch-pipeline
+//gcloud functions deploy goWithTheDataFlow --project=sutikno --region=australia-southeast1 --runtime=nodejs10 --service-account=datadeployer@sutikno.iam.gserviceaccount.com --stage-bucket=gs://batch-pipeline-code --trigger-bucket=gs://batch-pipeline-code
 const google = require('googleapis');
 //var {google} = require('googleapis');
 exports.goWithTheDataFlow = function(data, context, callback) {
@@ -14,7 +15,7 @@ exports.goWithTheDataFlow = function(data, context, callback) {
 
   //if (etype === 'google.storage.object.finalize' && file.data.name.indexOf('upload/') !== -1) {
   if (ttype === 'google.storage.object.finalize' && file.name.indexOf('upload/') !== -1) {    
-    google.auth.getApplicationDefault(function (err, authClient, projectId) {
+    google.auth.getApplicationDefault(function (err, authClient) {
     if (err) {
       throw err; 
     }
