@@ -4,7 +4,7 @@ const google = require('googleapis');
 //var {google} = require('googleapis');
 exports.goWithTheDataFlow = function(data, context, callback) {
   const file = data;  
-  //const etype = data.context.eventType;
+  const etype = data.context.eventType;
   const ttype = context.eventType;
      
   console.log("File is: ", file);
@@ -13,8 +13,8 @@ exports.goWithTheDataFlow = function(data, context, callback) {
   //console.log("file.data.name is: ", file.data.name);
   //console.log("data.name is: ", data.name);
 
-  //if (etype === 'google.storage.object.finalize' && file.data.name.indexOf('upload/') !== -1) {
-  if (ttype === 'google.storage.object.finalize' && file.name.indexOf('upload/') !== -1) {    
+  if (etype === 'google.storage.object.finalize' && file.data.name.indexOf('upload/') !== -1) {
+ // if (ttype === 'google.storage.object.finalize' && file.name.indexOf('upload/') !== -1) {    
     google.auth.getApplicationDefault(function (err, authClient) {
     if (err) {
       throw err; 
@@ -25,6 +25,7 @@ exports.goWithTheDataFlow = function(data, context, callback) {
         // Scopes can be specified either as an array or as a single, space-delimited string.
         authClient = authClient.createScoped([
           'https://www.googleapis.com/auth/cloud-platform',
+          'https://www.googleapis.com/auth/compute',
           'https://www.googleapis.com/auth/userinfo.email' 
         ]);
       }
