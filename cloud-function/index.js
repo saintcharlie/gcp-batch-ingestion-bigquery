@@ -1,5 +1,5 @@
 //gcloud --project=grey-sort-challenge functions deploy goWithTheDataFlow --stage-bucket gs://batch-pipeline --trigger-bucket gs://batch-pipeline
-//gcloud functions deploy goWithTheDataFlow --project=sutikno --region=australia-southeast1 --runtime=nodejs10 --service-account=datadeployer@sutikno.iam.gserviceaccount.com --stage-bucket=gs://batch-pipeline-code --trigger-bucket=gs://batch-pipeline-code
+//gcloud functions deploy goWithTheDataFlow --project=sutikno --region=australia-southeast1 --runtime=nodejs10 --set-env-vars DISABLE_LEGACY_METADATA_SERVER_ENDPOINTS=true --service-account=datadeployer@sutikno.iam.gserviceaccount.com --stage-bucket=gs://batch-pipeline-code --trigger-bucket=gs://batch-pipeline-code
 const google = require('googleapis');
 //var {google} = require('googleapis');
 exports.goWithTheDataFlow = function(data, context, callback) {
@@ -15,7 +15,7 @@ exports.goWithTheDataFlow = function(data, context, callback) {
 
   //if (etype === 'google.storage.object.finalize' && file.data.name.indexOf('upload/') !== -1) {
  if (ttype === 'google.storage.object.finalize' && file.name.indexOf('upload/') !== -1) {    
-    google.auth.getApplicationDefault(function (err, authClient) {
+    google.auth.getApplicationDefault(function (err, authClient, projectId) {
     if (err) {
       throw err; 
     }
@@ -25,16 +25,15 @@ exports.goWithTheDataFlow = function(data, context, callback) {
         // Scopes can be specified either as an array or as a single, space-delimited string.
         authClient = authClient.createScoped([
           'https://www.googleapis.com/auth/cloud-platform',
-          'https://www.googleapis.com/auth/compute',
           'https://www.googleapis.com/auth/userinfo.email' 
         ]);
       }
       
-      google.auth.getDefaultProjectId(function(err, projectId) {
-        if (err || !projectId) {
-          console.error(`Problems getting projectId (${projectId}). Err was: `, err);
-          throw err;
-        }
+    //  google.auth.getDefaultProjectId(function(err, projectId) {
+    //    if (err || !projectId) {
+    //      console.error(`Problems getting projectId (${projectId}). Err was: `, err);
+    //      throw err;
+    //    }
         console.log("then here?");
         const dataflow = google.dataflow({ version: 'v1b3', auth: authClient });
         dataflow.projects.templates.create({
@@ -53,7 +52,7 @@ exports.goWithTheDataFlow = function(data, context, callback) {
           console.log("Dataflow template response: ", response);
           callback();
         });
-      });
+      //});
     });
   } else {
     console.log("Nothing to do here, ignoring.");

@@ -12,6 +12,7 @@
 # below:
 .git
 .gitignore
+indexcopy.js
 
 node_modules
 #!include:.gitignore
