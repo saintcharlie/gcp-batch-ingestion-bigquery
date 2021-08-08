@@ -2,3 +2,4 @@ node_modules
 indexcopy.js
 packagecopy.json
 package-lockcopy.json
+package-lock.json

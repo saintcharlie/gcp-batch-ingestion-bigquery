@@ -15,6 +15,7 @@
 indexcopy.js
 packagecopy.json
 package-lockcopy.json
+package-lock.json
 
 node_modules
 #!include:.gitignore
