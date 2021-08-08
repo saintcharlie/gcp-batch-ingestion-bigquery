@@ -11,7 +11,7 @@ apply plugin: "idea"
 repositories {
     mavenLocal()
     mavenCentral()
-    maven {
+    confluent {
         url "https://packages.confluent.io/maven/"
     }
 }
