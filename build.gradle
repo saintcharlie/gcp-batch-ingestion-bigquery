@@ -33,8 +33,8 @@ run {
             "--numWorkers=1",
             "--region=australia-southeast1",
             "--workerZone=australia-southeast1-a",
-            "--stagingLocation=gs://batch-pipeline-code/jars",
-            "--tempLocation=gs://batch-pipeline-code/tmp",
+            //"--stagingLocation=gs://batch-pipeline-code/jars",
+            "--gcpTempLocation=gs://batch-pipeline-code/tmp",
             "--templateLocation=gs://batch-pipeline-code/template/pipeline"
     ]
 }
