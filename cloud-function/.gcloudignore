@@ -13,6 +13,8 @@
 .git
 .gitignore
 indexcopy.js
+packagecopy.json
+package-lockcopy.json
 
 node_modules
 #!include:.gitignore
