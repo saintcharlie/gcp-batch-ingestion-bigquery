@@ -5,15 +5,7 @@
   "license": "MIT",
   "devDependencies": {},
   "dependencies": {
-    "googleapis": "^39.2.0",
-    "chai": "3.5.0",
-    "co-mocha": "1.2.2",
-    "sinon": "1.17.4",
-    "sinon-chai": "2.8.0",
-    "mocha": "5.2.0"
-  },
-  "scripts": {
-    "test": "npm run test-unit",
-    "test-unit": "NODE_ENV=test mocha --require co-mocha '*.test.js'"
+    "@google-cloud/storage": "^1.6.0",
+     "googleapis": "^40.0.0"
   }
 }
