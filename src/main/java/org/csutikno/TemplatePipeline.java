@@ -32,7 +32,7 @@ public class TemplatePipeline {
     private static final Logger LOG = LoggerFactory.getLogger(TemplatePipeline.class);
 
     public static void main(String[] args) {
-        PipelineOptionsFactory.register(TemplateOptions.class);
+        //PipelineOptionsFactory.register(TemplateOptions.class);
         TemplateOptions options = PipelineOptionsFactory.fromArgs(args).withValidation().as(TemplateOptions.class);
         //DataflowPipelineOptions options = PipelineOptionsFactory.fromArgs(args).withValidation().as(TemplateOptions.class);
         Pipeline pipeline = Pipeline.create(options);
