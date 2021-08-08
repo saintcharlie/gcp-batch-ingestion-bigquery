@@ -18,6 +18,8 @@ package-lockcopy.json
 package-lock.json
 index39_1_0.js
 package39_1_0.json
+index40_0_0.js
+package40_0_0.json
 
 node_modules
 #!include:.gitignore
