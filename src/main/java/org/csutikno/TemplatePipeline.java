@@ -25,8 +25,8 @@ import static org.apache.beam.sdk.io.gcp.bigquery.BigQueryIO.Write.WriteDisposit
 public class TemplatePipeline {
     public static void main(String[] args) {
         PipelineOptionsFactory.register(TemplateOptions.class);
-        TemplateOptions options = PipelineOptionsFactory.fromArgs(args).withValidation().as(TemplateOptions.class);
-        //PipelineOptions options = PipelineOptionsFactory.fromArgs(args).withValidation().as(TemplateOptions.class);
+        // TemplateOptions options = PipelineOptionsFactory.fromArgs(args).withValidation().as(TemplateOptions.class);
+        DataflowPipelineOptions options = PipelineOptionsFactory.fromArgs(args).withValidation().as(TemplateOptions.class);
         Pipeline pipeline = Pipeline.create(options);
         pipeline.apply("READ", TextIO.read().from(options.getInputFile()))
                 .apply("TRANSFORM", ParDo.of(new WikiParDo()))
