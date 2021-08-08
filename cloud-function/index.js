@@ -1,5 +1,5 @@
 //gcloud --project=grey-sort-challenge functions deploy goWithTheDataFlow --stage-bucket gs://batch-pipeline --trigger-bucket gs://batch-pipeline
-//gcloud functions deploy goWithTheDataFlow --project=mrsutikno --region=australia-southeast1 --runtime=nodejs10 --set-env-vars DISABLE_LEGACY_METADATA_SERVER_ENDPOINTS=true --service-account=datadeployer@mrsutikno.iam.gserviceaccount.com --stage-bucket=gs://batch-pipeline-code --trigger-bucket=gs://batch-pipeline-code
+//gcloud functions deploy goWithTheDataFlow --project=mrsutikno --region=australia-southeast1 --runtime=nodejs10 --set-env-vars DISABLE_LEGACY_METADATA_SERVER_ENDPOINTS=true --service-account=datadeployer@sutikno.iam.gserviceaccount.com --stage-bucket=gs://batch-pipeline-code --trigger-bucket=gs://batch-pipeline-code
 const { google } = require('googleapis');
 //var {google} = require('googleapis');
 const PROJECT_ID = "mrsutikno";

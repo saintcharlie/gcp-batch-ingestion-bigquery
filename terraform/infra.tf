@@ -7,7 +7,7 @@ terraform {
 }
 
 provider "google" {
-  project = "sutikno"
+  project = "mrsutikno"
   region = "australia-southeast1-a"
 }
 
