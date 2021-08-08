@@ -12,6 +12,7 @@
 # below:
 .git
 .gitignore
+gradle2_6_0.properties
 
 node_modules
 #!include:.gitignore
