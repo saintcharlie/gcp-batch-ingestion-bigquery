@@ -37,7 +37,7 @@ steps:
 # 5. Trigger the pipeline for demo purposes
 - name: gcr.io/cloud-builders/gsutil
   args: ['cp', 'gs://test-file-for-dataflow/*', 'gs://batch-pipeline-code/upload/file.csv']
-
+ 
 # 6. Copy tarball/archive to GCS for more shenanigans later
 artifacts:
   objects:
