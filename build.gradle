@@ -32,7 +32,7 @@ run {
             "--maxNumWorkers=5",
             "--numWorkers=1",
             "--region=australia-southeast1",
-            "--zone=australia-southeast1-a",
+            "--workerZone=australia-southeast1-a",
             "--stagingLocation=gs://batch-pipeline-code/jars",
             "--tempLocation=gs://batch-pipeline-code/tmp",
             "--templateLocation=gs://batch-pipeline-code/template/pipeline"
