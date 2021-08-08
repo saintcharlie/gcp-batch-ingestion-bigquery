@@ -11,7 +11,7 @@ apply plugin: "idea"
 repositories {
     mavenLocal()
     mavenCentral()
-    confluent {
+    maven {
         url "https://packages.confluent.io/maven/"
     }
 }
@@ -23,7 +23,6 @@ dependencies {
     compile "org.apache.beam:beam-sdks-java-io-google-cloud-platform:${beam_version}"
     compile "org.apache.beam:beam-sdks-java-extensions-google-cloud-platform-core:${beam_version}"
     compile "org.apache.beam:beam-sdks-java-extensions-sql:${beam_version}"
-    compile "org.apache.beam:beam-sdks-java-io-kafka:${beam_version}"
     testCompile "org.hamcrest:hamcrest-all:1.3"
 }
 
