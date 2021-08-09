@@ -43,7 +43,7 @@ public class TemplatePipeline {
 
     private static TableSchema getTableSchema() {
         List<TableFieldSchema> fields = new ArrayList<>();
-        fields.add(new TableFieldSchema().setName("date").setType("DATE").setMode("REQUIRED"));
+        fields.add(new TableFieldSchema().setName("date").setType("STRING").setMode("REQUIRED"));
         fields.add(new TableFieldSchema().setName("transaction").setType("STRING").setMode("REQUIRED"));
         fields.add(new TableFieldSchema().setName("category").setType("STRING"));
         fields.add(new TableFieldSchema().setName("account").setType("STRING"));

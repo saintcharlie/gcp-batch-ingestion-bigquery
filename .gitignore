@@ -11,3 +11,4 @@ key.json
 .DS_Store
 cloud-function/.vscode/
 gradle2_6_0.properties
+bigquery/

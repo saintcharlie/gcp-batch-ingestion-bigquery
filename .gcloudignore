@@ -13,6 +13,7 @@
 .git
 .gitignore
 gradle2_6_0.properties
+transaction.sql
 
 node_modules
 #!include:.gitignore
