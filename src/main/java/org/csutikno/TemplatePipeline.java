@@ -30,10 +30,8 @@ public class TemplatePipeline {
     public static void main(String[] args) {
         PipelineOptionsFactory.register(TemplateOptions.class);
         TemplateOptions options = PipelineOptionsFactory.fromArgs(args).withValidation().as(TemplateOptions.class);
-        //DataflowPipelineOptions options = PipelineOptionsFactory.fromArgs(args).withValidation().as(TemplateOptions.class);
         Pipeline pipeline = Pipeline.create(options);
         pipeline.apply("READ", TextIO.read().from(options.getInputFile()))
-        //pipeline.apply("READ", TextIO.read().from(options.getInputFilePattern()))
                 .apply("TRANSFORM", ParDo.of(new WikiParDo()))
                 .apply("WRITE", BigQueryIO.writeTableRows()
                         .to(String.format("%s:banking.transaction", options.getProject()))
