@@ -48,7 +48,7 @@ public class TemplatePipeline {
         fields.add(new TableFieldSchema().setName("category").setType("STRING"));
         fields.add(new TableFieldSchema().setName("account").setType("STRING"));
         fields.add(new TableFieldSchema().setName("accountnumber").setType("STRING"));
-        fields.add(new TableFieldSchema().setName("amount").setType("INTEGER").setMode("REQUIRED"));
+        fields.add(new TableFieldSchema().setName("amount").setType("STRING").setMode("REQUIRED"));
         return new TableSchema().setFields(fields);
     }
 
