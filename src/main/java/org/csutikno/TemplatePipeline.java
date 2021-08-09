@@ -62,7 +62,7 @@ public class TemplatePipeline {
     public static class WikiParDo extends DoFn<String, TableRow> {
         public static final String HEADER = "date,transaction,category,account,accountnumber,amount";
 
-        @ProcessElement
+        @ProcessElement 
         public void processElement(ProcessContext c) throws Exception {
             if (c.element().equalsIgnoreCase(HEADER)) return;
             String[] split = c.element().split(",");
