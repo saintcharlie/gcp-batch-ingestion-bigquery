@@ -42,12 +42,12 @@ public class TemplatePipelineTest {
         Assert.assertThat(output, is(not(empty())));
 
 
-        Assert.assertThat(output.get(0).get("date"), is(equalTo("29/7/2021")));
-        Assert.assertThat(output.get(0).get("transaction"), is(equalTo("Coles (Mitcham)")));
-        Assert.assertThat(output.get(0).get("category"), is(equalTo("grocery")));
-        Assert.assertThat(output.get(0).get("account"), is(equalTo("credit card")));
-        Assert.assertThat(output.get(0).get("accountnumber"), is(equalTo("4484xxx4242")));
-        Assert.assertThat(output.get(0).get("amount"), is(equalTo("13")));
+        Assert.assertThat(output.get(0).get("Date"), is(equalTo("29/7/2021")));
+        Assert.assertThat(output.get(0).get("Transaction Details"), is(equalTo("Coles (Mitcham)")));
+        Assert.assertThat(output.get(0).get("Category"), is(equalTo("grocery")));
+        Assert.assertThat(output.get(0).get("Account"), is(equalTo("credit card")));
+        Assert.assertThat(output.get(0).get("Account Number"), is(equalTo("4484xxx4242")));
+        Assert.assertThat(output.get(0).get("Amount"), is(equalTo("13")));
         /*
         Assert.assertThat(output.get(0).get("year"), is(equalTo("2018")));
         Assert.assertThat(output.get(0).get("month"), is(equalTo("8")));
@@ -65,7 +65,7 @@ public class TemplatePipelineTest {
         List<String> input = new ArrayList<>();
 
         //input.add("year,month,day,wikimedia_project,language,title,views");
-        input.add("date,transaction,category,account,accountnumber,amount");
+        input.add("Date,Transaction Details,Category,Account,Account Number,Amount");
 
         List<TableRow> output = fnTester.processBundle(input);
 

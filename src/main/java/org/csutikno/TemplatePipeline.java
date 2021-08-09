@@ -34,7 +34,7 @@ public class TemplatePipeline {
         pipeline.apply("READ", TextIO.read().from(options.getInputFile()))
                 .apply("TRANSFORM", ParDo.of(new WikiParDo()))
                 .apply("WRITE", BigQueryIO.writeTableRows()
-                        .to(String.format("%s:banking.transaction", options.getProject()))
+                        .to(String.format("%s:raw.transaction", options.getProject()))
                         .withCreateDisposition(CREATE_IF_NEEDED)
                         .withWriteDisposition(WRITE_APPEND)
                         .withSchema(getTableSchema()));
