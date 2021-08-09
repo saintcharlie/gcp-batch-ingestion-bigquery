@@ -7,8 +7,6 @@ import org.apache.beam.runners.dataflow.options.DataflowPipelineOptions;
 import org.apache.beam.sdk.Pipeline;
 import org.apache.beam.sdk.io.TextIO;
 import org.apache.beam.sdk.io.gcp.bigquery.BigQueryIO;
-import org.apache.beam.sdk.io.gcp.bigquery.BigQueryIO.Write.CreateDisposition;
-import org.apache.beam.sdk.io.gcp.bigquery.BigQueryIO.Write.WriteDisposition;
 import org.apache.beam.sdk.options.Description;
 import org.apache.beam.sdk.options.PipelineOptionsFactory;
 import org.apache.beam.sdk.options.ValueProvider;
@@ -28,8 +26,6 @@ import static org.apache.beam.sdk.io.gcp.bigquery.BigQueryIO.Write.WriteDisposit
  * Do some randomness
  */
 public class TemplatePipeline {
-
-    private static final Logger LOG = LoggerFactory.getLogger(TemplatePipeline.class);
 
     public static void main(String[] args) {
         PipelineOptionsFactory.register(TemplateOptions.class);
