@@ -34,7 +34,7 @@ run {
             "--region=australia-southeast1",
             //"--workerZone=australia-southeast1-a",
             "--zone=australia-southeast1-a",
-            //"--stagingLocation=gs://batch-pipeline-code/jars",
+            "--stagingLocation=gs://batch-pipeline-code/jars",
             "--gcpTempLocation=gs://batch-pipeline-code/tmp",
             "--templateLocation=gs://batch-pipeline-code/template/pipeline"
     ]
