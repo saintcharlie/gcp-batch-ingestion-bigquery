@@ -29,7 +29,7 @@ dependencies {
 run {
     args = ["--project=mrsutikno",
             "--runner=DataflowRunner",
-            "--maxNumWorkers=5",
+            "--maxNumWorkers=3",
             "--numWorkers=1",
             "--region=australia-southeast1",
             //"--workerZone=australia-southeast1-a",

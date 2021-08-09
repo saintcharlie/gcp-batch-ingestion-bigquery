@@ -43,12 +43,12 @@ public class TemplatePipeline {
 
     private static TableSchema getTableSchema() {
         List<TableFieldSchema> fields = new ArrayList<>();
-        fields.add(new TableFieldSchema().setName("date").setType("STRING").setMode("REQUIRED"));
-        fields.add(new TableFieldSchema().setName("transaction").setType("STRING").setMode("REQUIRED"));
-        fields.add(new TableFieldSchema().setName("category").setType("STRING"));
-        fields.add(new TableFieldSchema().setName("account").setType("STRING"));
-        fields.add(new TableFieldSchema().setName("accountnumber").setType("STRING"));
-        fields.add(new TableFieldSchema().setName("amount").setType("STRING").setMode("REQUIRED"));
+        fields.add(new TableFieldSchema().setName("Date").setType("STRING").setMode("REQUIRED"));
+        fields.add(new TableFieldSchema().setName("Transaction Details").setType("STRING").setMode("REQUIRED"));
+        fields.add(new TableFieldSchema().setName("Category").setType("STRING"));
+        fields.add(new TableFieldSchema().setName("Account").setType("STRING"));
+        fields.add(new TableFieldSchema().setName("Account Number").setType("STRING"));
+        fields.add(new TableFieldSchema().setName("Amount").setType("STRING").setMode("REQUIRED"));
         return new TableSchema().setFields(fields);
     }
 
@@ -60,7 +60,7 @@ public class TemplatePipeline {
     }
 
     public static class WikiParDo extends DoFn<String, TableRow> {
-        public static final String HEADER = "date,transaction,category,account,accountnumber,amount";
+        public static final String HEADER = "Date,Transaction Details,Category,Account,Account Number,Amount";
 
         @ProcessElement 
         public void processElement(ProcessContext c) throws Exception {
